@@ -1,21 +1,10 @@
-import { useBlog } from "../../Context/BlogContext"
+import BlogPostCard from "../../Components/BlogPostCard";
 
 const LandingPage = () => {
 
-    const { blogPosts } = useBlog();
-
-
-
     return (
         <main>
-            {blogPosts.map((blogPost) => (
-                <div key={blogPost.id}>
-                    <h4>{blogPost.author}</h4>
-                    <h2>{blogPost.title}</h2>
-                    <p>{blogPost.text}</p>
-
-                </div>
-            ))}
+            <BlogPostCard />
         </main>
     );
 };

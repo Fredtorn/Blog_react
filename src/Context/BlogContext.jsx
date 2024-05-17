@@ -7,15 +7,15 @@ export const BlogProvider = ({ children }) => {
         {
             id: 1,
             author: "Bosse Bosse",
-            title: "Matcha latte är gott",
-            text: "Occaecat nulla irure ullamco nulla eiusmod culpa quis tempor. Nostrud reprehenderit ea labore ex anim laboris consequat eu labore irure. Proident magna qui laboris qui quis duis nulla eu consequat do. Lorem cillum fugiat consequat proident pariatur non fugiat eu voluptate dolore minim",
+            title: "Matchalatte är gott",
+            text: "Occaecat nulla irure ullamco nulla eiusmod culpa quis tempor. Nostrud reprehenderit ea labore ex anim laboris consequat eu labore irure. Proident magna qui laboris qui quis duis nulla eu consequat do. Lorem cillum fugiat consequat proident pariatur non fugiat eu voluptate dolore minim...",
             canEdit: false
         },
         {
             id: 2,
             author: "Janne Janne",
             title: "Jag älskar öl",
-            text: "Occaecat nulla irure ullamco nulla eiusmod culpa quis tempor. Nostrud reprehenderit ea labore ex anim laboris consequat eu labore irure. Proident magna qui laboris qui quis duis nulla eu consequat do. Lorem cillum fugiat consequat proident pariatur non fugiat eu voluptate dolore minim",
+            text: "Occaecat nulla irure ullamco nulla eiusmod culpa quis tempor. Nostrud reprehenderit ea labore ex anim laboris consequat eu labore irure. Proident magna qui laboris qui quis duis nulla eu consequat do. Lorem cillum fugiat consequat proident pariatur non fugiat eu voluptate dolore minim...",
             canEdit: false
         }
     ])
