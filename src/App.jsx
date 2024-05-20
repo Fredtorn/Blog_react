@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './Header/Header';
 import LandingPage from './Pages/LandingPage/LandingPage'
 import MyBlog from './Pages/MyBlog/MyBlog'
-import NewPost from './Pages/NewPost/NewPost'
+import NewBlogPostPage from './Pages/NewPost/NewBlogPostPage'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />}>Landing Page</Route>
         <Route path="/myblog" element={<MyBlog />}>My blog</Route>
-        <Route path="/newpost" element={<NewPost />}>New post</Route>
+        <Route path="/newpost" element={<NewBlogPostPage />}>New post</Route>
       </Routes>
     </BrowserRouter>
   )
