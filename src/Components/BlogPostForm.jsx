@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useBlog } from "../Context/BlogContext";
 import { useAuth } from "../Context/AuthContext";
 import GetDate from "./GetDate";
@@ -21,9 +21,11 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
         setBlogPosts([{ title, text, author, id, date, canEdit: true }, ...blogPosts]);
         setTitle('');
         setText('');
+
+        window.location.href = "/myblog";
+
     };
 
-    console.log(blogPosts)
     return (
         <div className="m-10">
             <h2 className="text-3xl font-serif font-semibold mt-4 mb-4">Write new blog post</h2>
@@ -42,6 +44,8 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
                     placeholder="Enter blog post text"
                 />
                 <button type="submit" className="border-2 border-solid border-black w-1/4 mt-1 mb-1 p-2">{existingPost ? 'Update Post' : 'Publish new post'}</button>
+
+
             </form>
         </div>
 
