@@ -5,14 +5,13 @@ import BlogPostCard from "../../Components/BlogPostCard";
 const MyBlog = () => {
 
     const { blogPosts } = useBlog();
-    const { userName } = useAuth();
+    const { currentUser } = useAuth();
 
-    const userBlogPosts = blogPosts.filter(post => post.author === userName);
-
+    const userBlogPosts = blogPosts.filter(post => post.author === currentUser.email);
     return (
         <main>
             {userBlogPosts.map(post => (
-                <BlogPostCard key={post.id} post={post} />
+                <BlogPostCard id={post.id} author={post.author} title={post.title} text={post.text} date={post.date} />
             ))}
         </main>
     )

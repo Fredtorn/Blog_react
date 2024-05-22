@@ -13,7 +13,7 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
     const handleSubmit = (ev) => {
         ev.preventDefault();
 
-        const id = blogPosts.length ? blogPosts[blogPosts.length - 1].id + 1 : 1
+        const id = blogPosts.length > 0 ? Math.max(...blogPosts.map(post => post.id)) + 1 : 1;
         const author = currentUser.email;
         const date = GetDate();
 
@@ -23,6 +23,7 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
         setText('');
 
         window.location.href = "/";
+
 
     };
 
