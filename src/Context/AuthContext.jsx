@@ -1,26 +1,34 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const lsIsLoggedIn = localStorage.getItem("isLoggedIn");
-    const [isLoggedIn, setIsLoggedIn] = useState(lsIsLoggedIn);
-    const [userName, serUserName] = useState("Fredrika");
+    const [currentUser, setCurrentUser] = useState(null);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, initializeUser);
+        return unsubscribe;
+    }, []);
 
-    const login = () => {
-        setIsLoggedIn(true);
-        localStorage.setItem("isLoggedIn", true);
+    const initializeUser = (user) => {
+        setLoading(true);
+        if (user) {
+            setCurrentUser(user);
+            setUserLoggedIn(true);
+        } else {
+            setCurrentUser(null);
+            setUserLoggedIn(false);
+        }
+        setLoading(false);
     };
 
-    const logout = () => {
-        setIsLoggedIn(false);
-        localStorage.removeItem("isLoggedIn", false);
-    }
-
     return (
-        <AuthContext.Provider value={{ userName, isLoggedIn, login, logout }}>
-            {children}
+        <AuthContext.Provider value={{ currentUser, userLoggedIn }}>
+            {!loading && children}
         </AuthContext.Provider>
     );
 };

@@ -8,13 +8,13 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
     const [text, setText] = useState('');
 
     const { blogPosts, setBlogPosts } = useBlog();
-    const { userName } = useAuth();
+    const { currentUser } = useAuth();
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
 
         const id = blogPosts.length ? blogPosts[blogPosts.length - 1].id + 1 : 1
-        const author = userName;
+        const author = currentUser.email;
         const date = GetDate();
 
         if (!title || !text) return;
@@ -22,7 +22,7 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
         setTitle('');
         setText('');
 
-        window.location.href = "/myblog";
+        window.location.href = "/";
 
     };
 
@@ -33,7 +33,7 @@ const NewBlogPostForm = ({ onAddOrEdit, existingPost }) => {
                 <input
                     type="text"
                     value={title}
-                    className="border-2 border-solid border-black mt-1 mb-1 p-5"
+                    className="border-2 border-solid border-black mt-1 mb-1 p-5 text-wrap"
                     onChange={(ev) => setTitle(ev.target.value)}
                     placeholder="Enter title"
                 />
