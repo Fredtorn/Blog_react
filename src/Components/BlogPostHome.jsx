@@ -10,7 +10,7 @@ const BlogPostCard = ({ id, date, text, title, author }) => {
                 <h4 className="font-medium">{author}</h4>
                 <p>{date}</p>
                 <h2 className="text-3xl font-semibold mt-4 mb-4 overflow-auto" >{title}</h2>
-                <p>{text}</p>
+                <p>{text.slice(0, 100)}...</p>
                 <Link to={`/post/${id}`} className="underline">Read More</Link>
             </div>
 

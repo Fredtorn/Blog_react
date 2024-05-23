@@ -1,6 +1,6 @@
 import { useBlog } from "../../Context/BlogContext";
 import { useAuth } from "../../Context/AuthContext";
-import BlogPostCard from "../../Components/BlogPostCard";
+import BlogPostCard from "../../Components/BlogPostHome";
 
 const MyBlog = () => {
 

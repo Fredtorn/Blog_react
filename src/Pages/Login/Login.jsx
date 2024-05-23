@@ -21,18 +21,18 @@ const Login = () => {
         <div>
             {userLoggedIn && <Navigate to={"/"} replace={true} />}
 
-            <main className="mt-40 w-full flex self-center place-content-center place-items-center">
-                <div className="w-96 space-y-5 p-4 shadow-xl border rounded-xl">
+            <main className="font-serif font-semibold mt-20 mb-4 flex self-center place-content-center place-items-center">
+                <div className="flex flex-col border-2 border-solid border-black w-1/4 h-full p-5">
                     <div className="text-center">
                         <div className="mt-2">
-                            <h3 className="text-xl font-semibold sm:text-2xl">
+                            <h3 className="mb-5 text-xl font-semibold sm:text-2xl">
                                 Welcome back
                             </h3>
                         </div>
                     </div>
                     <form onSubmit={onSubmit} className="space-y-5">
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">Email</label>
+                            <label className="text-sm font-bold">Email</label>
                             <input
                                 type="email"
                                 autoComplete="email"
@@ -41,12 +41,12 @@ const Login = () => {
                                 onChange={(e) => {
                                     setEmail(e.target.value);
                                 }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                                className="w-full mt-2 px-3 py-2 bg-transparent outline-none border font-sans"
                             />
                         </div>
 
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm font-bold">
                                 Password
                             </label>
                             <input
@@ -57,23 +57,22 @@ const Login = () => {
                                 onChange={(e) => {
                                     setPassword(e.target.value);
                                 }}
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
-                            />
+                                className="w-full mt-2 px-3 py-2 bg-transparent outline-none border font-sans" />
                         </div>
 
 
                         <button
                             type="submit"
                             disabled={isSigningIn}
-                            className={`w-full px-4 py-2 text-white font-medium rounded-lg ${isSigningIn
+                            className={`w-full border-black border-2 border-solid px-3 py-2.5 mb-10 mr-3 ${isSigningIn
                                 ? "bg-gray-300 cursor-not-allowed"
-                                : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300"
+                                : "hover:bg-black hover:text-white"
                                 }`}
                         >
                             {isSigningIn ? "Signing In..." : "Sign In"}
                         </button>
                     </form>
-                    <p className="text-center text-sm">
+                    <p className="mt-10 text-center text-sm">
                         Don't have an account?{" "}
                         <Link to={"/register"} className="hover:underline font-bold">
                             Sign up

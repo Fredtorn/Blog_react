@@ -1,7 +1,7 @@
-import BlogPostCard from "../../Components/BlogPostCard";
+import BlogPostCard from "../../Components/BlogPostHome";
 import { useBlog } from "../../Context/BlogContext";
 
-const LandingPage = () => {
+const Home = () => {
 
     const { blogPosts } = useBlog();
     return (
@@ -13,4 +13,4 @@ const LandingPage = () => {
     );
 };
 
-export default LandingPage;
+export default Home;
