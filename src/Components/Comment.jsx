@@ -3,13 +3,12 @@ import { useAuth } from "../Context/AuthContext";
 
 const Comment = ({ comments, onAddComment }) => {
   const { currentUser } = useAuth();
-
   const [newComment, setNewComment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newComment.trim() === "") return;
-    onAddComment(newComment);
+    onAddComment({ text: newComment, author: currentUser.email });
     setNewComment("");
   };
 
@@ -18,7 +17,14 @@ const Comment = ({ comments, onAddComment }) => {
       <h2 className="text-xl font-semibold mb-4">Comments</h2>
       <div>
         {comments.map((comment, index) => (
-          <div key={index} className="mb-2">{comment}</div>
+          <>
+            <div key={index} className="p-2">
+              <span className="text-xs">Written by: {comment.author}</span>
+              <br />
+              {comment.text}
+            </div>
+            <hr />
+          </>
         ))}
       </div>
       <form onSubmit={handleSubmit}>
@@ -31,7 +37,7 @@ const Comment = ({ comments, onAddComment }) => {
         ></textarea>
         <button
           type="submit"
-          className="w-full border-black border-2 border-solid px-3 py-2.5 mb-10 mr-3">
+          className="w-full border-black border-2 border-solid px-3 py-2.5 mb-10 mr-3 hover:bg-black hover:text-white">
           Add Comment
         </button>
       </form>

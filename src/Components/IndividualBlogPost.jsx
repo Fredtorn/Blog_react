@@ -14,7 +14,7 @@ const IndividualBlogPost = () => {
     const [comments, setComments] = useState([]);
 
     const handleAddComment = (comment) => {
-        setComments([comment, ...comments]);
+        setComments([...comments, comment]);
         addCommentToPost(post.id, comment);
     };
 
@@ -44,11 +44,11 @@ const IndividualBlogPost = () => {
                 <p className="mb-10">{post.text}</p>
                 {currentUser.email === post.author && (
                     <>
+                        <Comment comments={comments} onAddComment={handleAddComment} />
                         <Link to={`/edit/${id}`} className="border-black border-2 border-solid px-3 py-2.5 my-3 mr-3 hover:bg-black hover:text-white">Edit Post</Link>
                         <button onClick={handleDelete} className=" px-4 py-2 my-3 mr-3 text-white bg-black">Delete</button>
                     </>
                 )}
-                <Comment comments={comments} onAddComment={handleAddComment} />
             </div>
         </>
     );
