@@ -27,7 +27,7 @@ const IndividualBlogPost = () => {
 
     return (
         <>
-            <Link to={"/"} className="underline font-semibold font-serif ml-12">Back to all posts</Link>
+            <Link to={"/"} className="underline font-semibold font-serif ml-12">Back to Home</Link>
             <div key={post.id} className="border-2 border-solid border-black w-1/2 m-10 p-5 font-serif ">
                 <h4 className="font-medium">{post.author}</h4>
                 <p>{post.date}</p>
