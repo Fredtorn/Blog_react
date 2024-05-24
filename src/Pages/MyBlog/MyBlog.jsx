@@ -1,6 +1,6 @@
 import { useBlog } from "../../Context/BlogContext";
 import { useAuth } from "../../Context/AuthContext";
-import BlogPostCard from "../../Components/BlogPostHome";
+import BlogPostHome from "../../Components/BlogPostHome";
 
 const MyBlog = () => {
 
@@ -11,7 +11,7 @@ const MyBlog = () => {
     return (
         <main>
             {userBlogPosts.map(post => (
-                <BlogPostCard id={post.id} author={post.author} title={post.title} text={post.text} date={post.date} />
+                <BlogPostHome id={post.id} author={post.author} title={post.title} text={post.text} date={post.date} />
             ))}
         </main>
     )

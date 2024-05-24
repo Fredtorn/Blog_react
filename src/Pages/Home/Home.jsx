@@ -1,4 +1,4 @@
-import BlogPostCard from "../../Components/BlogPostHome";
+import BlogPostHome from "../../Components/BlogPostHome";
 import { useBlog } from "../../Context/BlogContext";
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <main>
             {blogPosts.map(post => (
-                <BlogPostCard id={post.id} author={post.author} title={post.title} text={post.text} date={post.date} />
+                <BlogPostHome id={post.id} author={post.author} title={post.title} text={post.text} date={post.date} />
             ))}
         </main>
     );

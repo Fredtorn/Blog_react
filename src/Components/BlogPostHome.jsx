@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BlogPostCard = ({ id, date, text, title, author }) => {
+const BlogPostHome = ({ id, date, text, title, author }) => {
 
 
     return (
@@ -19,4 +19,4 @@ const BlogPostCard = ({ id, date, text, title, author }) => {
     );
 };
 
-export default BlogPostCard;
+export default BlogPostHome;
